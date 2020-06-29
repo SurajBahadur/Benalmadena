@@ -1,23 +1,35 @@
 package com.benalmadena.activity.offers_discounts
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.benalmadena.R
 import com.benalmadena.activity.ActivityWebView
+import com.benalmadena.base.BaseFragment
 import kotlinx.android.synthetic.main.layout_find_us_common.*
 import kotlinx.android.synthetic.main.layout_toolbar_common.*
 
-class ActivityLastBar:AppCompatActivity() {
+class ActivityLastBar:BaseFragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_last_bar)
-        tv_title.text=intent.getStringExtra("title")
-        btn_back.setOnClickListener { finish() }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.activity_last_bar,container,false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        tv_title.text=arguments!!.getString("title")
+        btn_back.setOnClickListener { activity!!.onBackPressed() }
 
         setFindUsValue()
     }
+
+
     fun setFindUsValue() {
         tv_address_find_us.text = "avenida antonio machado 76 pueblo santa ana local 3, 29630 Benalmádena"
         ll_email.visibility = View.GONE
@@ -25,7 +37,7 @@ class ActivityLastBar:AppCompatActivity() {
         ll_website.visibility = View.GONE
 
         tv_facebook_find_us.setOnClickListener {
-            ActivityWebView.start(this, "", "https://www.facebook.com/HereALast/")
+            goToWebViewScreen("", "https://www.facebook.com/HereALast/")
         }
     }
 }

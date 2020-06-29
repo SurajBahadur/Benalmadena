@@ -4,30 +4,40 @@ import android.Manifest
 import android.app.Activity
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.benalmadena.R
 import com.benalmadena.activity.ActivityWebView
+import com.benalmadena.base.BaseFragment
 import kotlinx.android.synthetic.main.activity_taberna_flamenca.*
 import kotlinx.android.synthetic.main.layout_toolbar_common.*
 import org.jetbrains.anko.makeCall
 
-class ActivityTabernaFlamenca:AppCompatActivity() {
+class ActivityTabernaFlamenca:BaseFragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_taberna_flamenca)
-        tv_title.text=intent.getStringExtra("title")
-        btn_back.setOnClickListener { finish() }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.activity_taberna_flamenca,container,false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        tv_title.text=arguments!!.getString("title")
+        btn_back.setOnClickListener { activity!!.onBackPressed() }
 
         tv_website_tabe.setOnClickListener {
-
-            ActivityWebView.start(this,"","http://www.tabernaflamencapepelopez.com/")
+            goToWebViewScreen("","http://www.tabernaflamencapepelopez.com/")
         }
         tv_phone.setOnClickListener {
             if (ContextCompat.checkSelfPermission(
-                    this,
+                    activity!!,
                     Manifest.permission.CALL_PHONE
                 ) != PackageManager.PERMISSION_GRANTED
             ) run {
@@ -37,9 +47,11 @@ class ActivityTabernaFlamenca:AppCompatActivity() {
                     ), 993
                 )
             } else {
-                makeCall(tv_phone.text.toString())
+                activity!!.makeCall(tv_phone.text.toString())
 
             }
         }
     }
+
+
 }

@@ -1,32 +1,36 @@
 package com.benalmadena.activity.local_guides
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.benalmadena.R
-import com.benalmadena.activity.offers_discounts.ActivityDiscountHotelPueblo
 import com.benalmadena.adapter.AdapterOffersDiscount
+import com.benalmadena.base.BaseFragment
 import com.benalmadena.data.OffersDiscountData
 import kotlinx.android.synthetic.main.activity_local_guides.*
 import kotlinx.android.synthetic.main.layout_toolbar_common.*
 
-class ActivityLocalGuidesServices:AppCompatActivity() {
-    companion object{
-        fun start(context: Context){
-            val intent= Intent(context, ActivityLocalGuidesServices::class.java)
-            context.startActivity(intent)
-        }
-    }
+class ActivityLocalGuidesServices:BaseFragment(), (Fragment, String) -> Unit {
+
     lateinit var adapterOffersDiscount: AdapterOffersDiscount;
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_local_guides)
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.activity_local_guides,container,false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initLocalGuide()
 
         tv_title.text="Local Guides & Services"
-        btn_back.setOnClickListener { finish() }
+        btn_back.setOnClickListener { activity!!.onBackPressed() }
     }
 
     fun initLocalGuide() {
@@ -51,9 +55,16 @@ class ActivityLocalGuidesServices:AppCompatActivity() {
 
 
 
-        adapterOffersDiscount= AdapterOffersDiscount(this,listData)
+        adapterOffersDiscount= AdapterOffersDiscount(activity!!, listData,this)
         rv_local_guides.layoutManager = StaggeredGridLayoutManager(1, 1)
         rv_local_guides.adapter = adapterOffersDiscount
 
+    }
+
+    override fun invoke(fragment: Fragment, title: String) {
+        fragment.arguments = Bundle().apply {
+            putString("title", title)
+        }
+        addFragment(fragment, true, R.id.container_full)
     }
 }

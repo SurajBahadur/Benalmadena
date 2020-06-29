@@ -5,7 +5,9 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
@@ -15,42 +17,41 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.benalmadena.R
+import com.benalmadena.base.BaseFragment
 import kotlinx.android.synthetic.main.activity_web_view.*
 
-class ActivityWebView:AppCompatActivity() {
-    companion object{
-        fun start(context: Context, title:String, url:String){
-            val intent= Intent(context,ActivityWebView::class.java)
+class ActivityWebView:BaseFragment() {
 
-            intent.putExtra("title",title)
-            intent.putExtra("url",url)
-            context.startActivity(intent)
-        }
-
-        lateinit var progressBar: ProgressBar
-    }
 
     lateinit var WebUrl:String
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_web_view)
 
-        tv_title_web_view.text=intent.getStringExtra("title")
-        btn_back_web_view.setOnClickListener { finish() }
-        WebUrl=intent.getStringExtra("url")
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.activity_web_view,container,false)
+    }
 
-        progressBar=findViewById(R.id.progress_bar)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        tv_title_web_view.text=arguments!!.getString("title")
+        btn_back_web_view.setOnClickListener {
+            activity!!.onBackPressed()
+        }
+        WebUrl= arguments!!.getString("url").toString()
         progressBar.visibility= View.VISIBLE
 
         webview.settings.javaScriptEnabled = true
         webview.settings.domStorageEnabled=true
         webview.scrollBarStyle = WebView.SCROLLBARS_OUTSIDE_OVERLAY
-        webview.webViewClient = MyWebViewClient(this,progress_bar)
+        webview.webViewClient = MyWebViewClient(activity!!,progressBar)
         webview.loadUrl(WebUrl)
     }
 
 
-    private class MyWebViewClient(val context: Context,val view:ProgressBar ) : WebViewClient() {
+
+    private class MyWebViewClient(val context: Context,val progressBar:ProgressBar ) : WebViewClient() {
 
         override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
             view?.loadUrl(url)

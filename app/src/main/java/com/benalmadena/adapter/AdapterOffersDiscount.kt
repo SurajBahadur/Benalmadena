@@ -1,18 +1,22 @@
 package com.benalmadena.adapter
 
 import android.content.Context
-import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.benalmadena.R
-import com.benalmadena.activity.ActivityOffersDiscount
 import com.benalmadena.data.OffersDiscountData
 import kotlinx.android.synthetic.main.adapter_offers_discunt.view.*
 
-class AdapterOffersDiscount(val context:Context,val list:ArrayList<OffersDiscountData>): RecyclerView.Adapter<AdapterOffersDiscount.MyViewHolder>() {
-    class MyViewHolder  (v: View):RecyclerView.ViewHolder(v){
+class AdapterOffersDiscount(
+    val context: Context,
+    val list: ArrayList<OffersDiscountData>,
+    val listener: (Fragment, String) -> Unit
+) : RecyclerView.Adapter<AdapterOffersDiscount.MyViewHolder>() {
+    class MyViewHolder(v: View) : RecyclerView.ViewHolder(v) {
 
     }
 
@@ -20,7 +24,8 @@ class AdapterOffersDiscount(val context:Context,val list:ArrayList<OffersDiscoun
         parent: ViewGroup,
         viewType: Int
     ): AdapterOffersDiscount.MyViewHolder {
-        val itemView=LayoutInflater.from(context).inflate(R.layout.adapter_offers_discunt,parent,false)
+        val itemView =
+            LayoutInflater.from(context).inflate(R.layout.adapter_offers_discunt, parent, false)
         return MyViewHolder(itemView)
     }
 
@@ -30,13 +35,13 @@ class AdapterOffersDiscount(val context:Context,val list:ArrayList<OffersDiscoun
 
     override fun onBindViewHolder(holder: AdapterOffersDiscount.MyViewHolder, position: Int) {
 
-        holder.itemView.tv_name.text=list[position].title
+        holder.itemView.tv_name.text = list[position].title
         holder.itemView.iv_icon.setImageDrawable(context.getDrawable(list[position].drawable))
 
         holder.itemView.layout_click.setOnClickListener {
-            val intent= Intent(context,list[position].activityName::class.java)
-            intent.putExtra("title",list[position].title)
-            context.startActivity(intent)
+            listener.invoke(list[position].activityName,list[position].title)
         }
+
+
     }
 }

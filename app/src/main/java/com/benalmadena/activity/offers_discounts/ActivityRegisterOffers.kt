@@ -1,21 +1,34 @@
 package com.benalmadena.activity.offers_discounts
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import com.benalmadena.R
-import com.benalmadena.activity.ActivityWebView
+import com.benalmadena.base.BaseFragment
 import kotlinx.android.synthetic.main.activity_register_offer.*
 import kotlinx.android.synthetic.main.layout_toolbar_common.*
 
-class ActivityRegisterOffers:AppCompatActivity() {
+class ActivityRegisterOffers : BaseFragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register_offer)
-        tv_title.text=intent.getStringExtra("title")
-        btn_back.setOnClickListener { finish() }
-
-        tv_website.setOnClickListener {   ActivityWebView.start(this,"","http://www.discoverbenalmadena.info")
-        }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.activity_register_offer, container, false)
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        tv_title.text = arguments!!.getString("title")
+        btn_back.setOnClickListener { activity!!.onBackPressed() }
+
+        tv_website.setOnClickListener {
+            goToWebViewScreen("", "http://www.discoverbenalmadena.info")
+        }
+
+    }
+
+
 }

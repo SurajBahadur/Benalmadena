@@ -6,25 +6,37 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.benalmadena.R
 import com.benalmadena.activity.ActivityWebView
+import com.benalmadena.base.BaseFragment
 import kotlinx.android.synthetic.main.layout_find_us_common.*
 import kotlinx.android.synthetic.main.layout_toolbar_common.*
 import org.jetbrains.anko.makeCall
 
-class ActivityDiscountHotelPueblo:AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.acivity_discount_hotel_pueblo)
+class ActivityDiscountHotelPueblo:BaseFragment() {
 
-        tv_title.text=intent.getStringExtra("title")
-        btn_back.setOnClickListener { finish() }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.acivity_discount_hotel_pueblo,container,false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        tv_title.text=arguments!!.getString("title")
+        btn_back.setOnClickListener {activity!!.onBackPressed() }
 
         setFindUsValue()
     }
+
 
     fun setFindUsValue(){
         tv_address_find_us.text="Avenida Juan Luis Peralta s/n, 29639 Benalmádena Pueblo, Spain"
@@ -32,14 +44,14 @@ class ActivityDiscountHotelPueblo:AppCompatActivity() {
         tv_email_find_us.text="info@hotelpueblo.es"
         tv_website_find_us.text="www.hotelpueblo.es"
         tv_facebook_find_us.setOnClickListener {
-            ActivityWebView.start(this,"","https://www.facebook.com/hotelpueblo")
+            goToWebViewScreen("","https://www.facebook.com/hotelpueblo")
         }
         tv_website_find_us.setOnClickListener {
-            ActivityWebView.start(this,"","http://www.hotelpueblo.es/")
+            goToWebViewScreen("","http://www.hotelpueblo.es/")
         }
         tv_phone_find_us.setOnClickListener {
             if (ContextCompat.checkSelfPermission(
-                    this,
+                    activity!!,
                     Manifest.permission.CALL_PHONE
                 ) != PackageManager.PERMISSION_GRANTED
             ) run {
@@ -49,7 +61,7 @@ class ActivityDiscountHotelPueblo:AppCompatActivity() {
                     ), 993
                 )
             } else {
-                makeCall("+34 951 331 306")
+                activity!!.makeCall("+34 951 331 306")
 
             }
         }

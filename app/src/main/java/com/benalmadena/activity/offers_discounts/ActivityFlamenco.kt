@@ -4,23 +4,32 @@ import android.Manifest
 import android.app.Activity
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.benalmadena.R
 import com.benalmadena.activity.ActivityWebView
+import com.benalmadena.base.BaseFragment
 import kotlinx.android.synthetic.main.layout_find_us_common.*
 import kotlinx.android.synthetic.main.layout_toolbar_common.*
 import org.jetbrains.anko.makeCall
 
-class ActivityFlamenco:AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_famenco)
+class ActivityFlamenco:BaseFragment() {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.activity_famenco,container,false)
+    }
 
-        tv_title.text=intent.getStringExtra("title")
-        btn_back.setOnClickListener { finish() }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        tv_title.text=arguments!!.getString("title")
+        btn_back.setOnClickListener { activity!!.onBackPressed() }
 
         setFindUsValue()
     }
@@ -29,14 +38,14 @@ class ActivityFlamenco:AppCompatActivity() {
         tv_address_find_us.text="7 Avenida Gamonal, Centro comercial Caranto 8, Benalmádena, Spain"
         tv_phone_find_us.text="+34 617 503 126"
         tv_facebook_find_us.setOnClickListener {
-            ActivityWebView.start(this,"","https://www.facebook.com/flamencobenalmadenapage/")
+           goToWebViewScreen("","https://www.facebook.com/flamencobenalmadenapage/")
         }
         tv_insta_find_us.setOnClickListener {
-            ActivityWebView.start(this,"","https://www.instagram.com/asamidebenal/")
+            goToWebViewScreen("","https://www.instagram.com/asamidebenal/")
         }
         tv_phone_find_us.setOnClickListener {
             if (ContextCompat.checkSelfPermission(
-                    this,
+                    activity!!,
                     Manifest.permission.CALL_PHONE
                 ) != PackageManager.PERMISSION_GRANTED
             ) run {
@@ -46,7 +55,7 @@ class ActivityFlamenco:AppCompatActivity() {
                     ), 993
                 )
             } else {
-                makeCall("+34 617 503 126")
+                activity!!.makeCall("+34 617 503 126")
 
             }
         }

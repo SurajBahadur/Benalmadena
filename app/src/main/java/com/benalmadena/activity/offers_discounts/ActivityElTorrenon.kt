@@ -6,37 +6,46 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.benalmadena.R
 import com.benalmadena.activity.ActivityWebView
+import com.benalmadena.base.BaseFragment
 import kotlinx.android.synthetic.main.layout_find_us_common.*
 import kotlinx.android.synthetic.main.layout_toolbar_common.*
 import org.jetbrains.anko.makeCall
 
-class ActivityElTorrenon:AppCompatActivity() {
+class ActivityElTorrenon:BaseFragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_el_torrenon)
-        tv_title.text=intent.getStringExtra("title")
-        btn_back.setOnClickListener { finish() }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.activity_el_torrenon,container,false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        tv_title.text=arguments!!.getString("title")
+        btn_back.setOnClickListener { activity!!.onBackPressed() }
 
         setFindUsValue()
     }
-
 
     fun setFindUsValue(){
         tv_address_find_us.text="Plaza la tribuna #11, Arroyo De La Miel, Andalucia, Spain 29631"
         tv_phone_find_us.text="+34 952 57 58 04"
         tv_facebook_find_us.setOnClickListener {
-            ActivityWebView.start(this,"","https://www.facebook.com/BAR-EL-TORREON-153828648021783/")
+            goToWebViewScreen("","https://www.facebook.com/BAR-EL-TORREON-153828648021783/")
         }
         tv_phone_find_us.setOnClickListener {
             if (ContextCompat.checkSelfPermission(
-                    this,
+                    activity!!,
                     Manifest.permission.CALL_PHONE
                 ) != PackageManager.PERMISSION_GRANTED
             ) run {
@@ -46,7 +55,7 @@ class ActivityElTorrenon:AppCompatActivity() {
                     ), 993
                 )
             } else {
-                makeCall("+34 952 57 58 04")
+                activity!!.makeCall("+34 952 57 58 04")
 
             }
         }

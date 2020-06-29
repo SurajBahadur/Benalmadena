@@ -7,12 +7,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.benalmadena.R
 import com.benalmadena.activity.ActivityWebView
+import com.benalmadena.activity.discover_benalmadena.ActivityVieoBenalmadena
 import com.benalmadena.data.YoutubeVideoData
 import com.benalmadena.utils.CommonFunction
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.adapter_youtube_video.view.*
 
-class AdapterYoutubeVideo(val context: Context,val list: ArrayList<YoutubeVideoData>):RecyclerView.Adapter<AdapterYoutubeVideo.MyViewHolder>() {
+class AdapterYoutubeVideo(
+    val context: Context,
+    val list: ArrayList<YoutubeVideoData>,
+    val activity: ActivityVieoBenalmadena
+):RecyclerView.Adapter<AdapterYoutubeVideo.MyViewHolder>() {
     class MyViewHolder  (v: View):RecyclerView.ViewHolder(v){
 
     }
@@ -39,7 +44,7 @@ class AdapterYoutubeVideo(val context: Context,val list: ArrayList<YoutubeVideoD
         holder.itemView.tv_time_video.text=list[position].duration
 
         holder.itemView.video_click.setOnClickListener {
-            ActivityWebView.start(context,"",list[position].url)
+            activity.goToWebViewScreen("",list[position].url)
         }
 
     }

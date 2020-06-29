@@ -1,24 +1,35 @@
 package com.benalmadena.activity.discover_benalmadena
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.benalmadena.R
 import com.benalmadena.adapter.AdapterYoutubeVideo
+import com.benalmadena.base.BaseFragment
 import com.benalmadena.data.YoutubeVideoData
 import kotlinx.android.synthetic.main.activity_vido_benalmadena.*
 import kotlinx.android.synthetic.main.layout_toolbar_common.*
 
-class ActivityVieoBenalmadena:AppCompatActivity() {
+class ActivityVieoBenalmadena:BaseFragment() {
 
     lateinit var adapterYoutubeVideo: AdapterYoutubeVideo
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_vido_benalmadena)
-        tv_title.text=intent.getStringExtra("title")
-        btn_back.setOnClickListener { finish() }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.activity_vido_benalmadena,container,false)
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        tv_title.text=arguments!!.getString("title")
+        btn_back.setOnClickListener {
+            activity!!.onBackPressed()
+        }
         initVideos()
 
     }
@@ -32,7 +43,7 @@ class ActivityVieoBenalmadena:AppCompatActivity() {
         listData.add(YoutubeVideoData("Benalmádena - Video Promocional FITUR 2017","The latest video from the Benalmádena tourist board","https://img.youtube.com/vi/VS6SlxHynW8/0.jpg","http://www.youtube.com/embed/VS6SlxHynW8?autoplay=1&vq=small","2.14"))
         listData.add(YoutubeVideoData("Benalmádena en Fitur 2018","","https://img.youtube.com/vi/ItnQ2r1ewhY/0.jpg","https://youtu.be/ItnQ2r1ewhY","2.19"))
 
-        adapterYoutubeVideo= AdapterYoutubeVideo(this,listData)
+        adapterYoutubeVideo= AdapterYoutubeVideo(activity!!,listData,this)
         rv_videos.layoutManager = StaggeredGridLayoutManager(1, 1)
         rv_videos.adapter = adapterYoutubeVideo
     }

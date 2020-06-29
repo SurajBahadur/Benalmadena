@@ -2,66 +2,112 @@ package com.benalmadena.activity.discover_benalmadena
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
+import android.view.ViewGroup
 import com.benalmadena.R
 import com.benalmadena.activity.ActivityWebView
+import com.benalmadena.base.BaseFragment
 import kotlinx.android.synthetic.main.activity_dayo_out.*
 import kotlinx.android.synthetic.main.layout_toolbar_common.*
 
-class ActivityDayOutThings:AppCompatActivity() {
+class ActivityDayOutThings : BaseFragment(), View.OnClickListener {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dayo_out)
 
-        tv_title.text=intent.getStringExtra("title")
-        btn_back.setOnClickListener { finish() }
-
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.activity_dayo_out, container, false)
     }
 
-    fun onDayOutClick(v:View){
-        when(v){
-            btn_tivoli_world->{
-                ActivityWebView.start(this,"","www.tivoli.es/")
-            }
-            btn_aqualand->{
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        tv_title.text = arguments!!.getString("title")
+        btn_back.setOnClickListener {
+            activity!!.onBackPressed()
+        }
+        attachClickListeners()
+    }
 
-                val intent= Intent(this,ActivityAqualand::class.java)
-                intent.putExtra("title","Aqualand")
-                startActivity(intent)
-            }
-            btn_selwo->{
+    private fun attachClickListeners() {
+        btn_tivoli_world.setOnClickListener(this)
+        btn_aqualand.setOnClickListener(this)
+        btn_selwo.setOnClickListener(this)
+        btn_calecar.setOnClickListener(this)
+        btn_sunset_beach.setOnClickListener(this)
+        btn_sealife.setOnClickListener(this)
+        btn_butterfly.setOnClickListener(this)
+        btn_ek_ranchito.setOnClickListener(this)
+        btn_tourist_train.setOnClickListener(this)
+        btn_ferry_curise.setOnClickListener(this)
+    }
 
-                ActivityWebView.start(this,"","http://selwomarina.es/en")
-            }
-            btn_calecar->{
-                ActivityWebView.start(this,"","http://telefericobenalmadena.com/?lang=en")
-            }
-            btn_sunset_beach->{
-                ActivityWebView.start(this,"","http://www.sunsetbeachwatersports.com/")
-            }
-            btn_sealife->{
 
-                ActivityWebView.start(this,"","https://www.visitsealife.com/benalmadena/en/")
+    override fun onClick(v: View?) {
+        when (v) {
+            btn_tivoli_world -> {
+                goToNextScreen(this, "", "www.tivoli.es/")
+            }
+            btn_aqualand -> {
+                val fragment = ActivityAqualand()
+                fragment.arguments = Bundle().apply {
+                    putString("title", "Aqualand")
+                    putString("url", "")
+                }
+                addFragment(fragment, true, R.id.container_full)
+
+            }
+            btn_selwo -> {
+                goToNextScreen(this, "", "http://selwomarina.es/en")
+            }
+            btn_calecar -> {
+                goToNextScreen(this, "", "http://telefericobenalmadena.com/?lang=en")
+            }
+            btn_sunset_beach -> {
+                goToNextScreen(this, "", "http://www.sunsetbeachwatersports.com/")
+            }
+            btn_sealife -> {
+
+                goToNextScreen(this, "", "https://www.visitsealife.com/benalmadena/en/")
             }
 
-            btn_butterfly->{
+            btn_butterfly -> {
 
-                ActivityWebView.start(this,"","http://www.mariposariodebenalmadena.com/en/")
+                goToNextScreen(this, "", "http://www.mariposariodebenalmadena.com/en/")
             }
-            btn_ek_ranchito->{
+            btn_ek_ranchito -> {
 
-                ActivityWebView.start(this,"","http://ranchito.com/")
+                goToNextScreen(this, "", "http://ranchito.com/")
             }
-            btn_tourist_train->{
+            btn_tourist_train -> {
 
-                ActivityWebView.start(this,"","https://www.tripadvisor.co.uk/Attraction_Review-g1079250-d4995165-Reviews-Moncho_Tren_S_A-Arroyo_de_la_Miel_Benalmadena_Costa_del_Sol_Province_of_Malaga_A.html#REVIEWS")
+                goToNextScreen(
+                    this,
+                    "",
+                    "https://www.tripadvisor.co.uk/Attraction_Review-g1079250-d4995165-Reviews-Moncho_Tren_S_A-Arroyo_de_la_Miel_Benalmadena_Costa_del_Sol_Province_of_Malaga_A.html#REVIEWS"
+                )
             }
-            btn_ferry_curise->{
+            btn_ferry_curise -> {
 
-                ActivityWebView.start(this,"","http://www.costasolcruceros.com/")
+                goToNextScreen(this, "", "http://www.costasolcruceros.com/")
             }
         }
     }
+
+    private fun goToNextScreen(
+        activityDayOutThings: ActivityDayOutThings,
+        title: String,
+        url: String
+    ) {
+        val fragment = ActivityWebView()
+        fragment.arguments = Bundle().apply {
+            putString("title", title)
+            putString("url", url)
+        }
+        addFragment(fragment, true, R.id.container_full)
+    }
+
+
 }

@@ -1,69 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.benalmadena">
-<uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ActivityOffersDiscount" />
-        <activity android:name=".activity.offers_discounts.ActivityDiscountHotelPueblo" />
-        <activity android:name=".activity.ActivityWebView" />
-        <activity android:name=".activity.offers_discounts.ActivityElTorrenon" />
-        <activity android:name=".activity.offers_discounts.ActivityCafeBar" />
-        <activity android:name=".activity.offers_discounts.ActivitySalon" />
-        <activity android:name=".activity.offers_discounts.ActivityOsaCarHire" />
-        <activity android:name=".activity.offers_discounts.ActivityLaNinaDel" />
-        <activity android:name=".activity.offers_discounts.ActivityBelgianCorner" />
-        <activity android:name=".activity.offers_discounts.ActivityFlamenco" />
-        <activity android:name=".activity.offers_discounts.ActivityDivas" />
-        <activity android:name=".activity.offers_discounts.ActivityArtOfHair" />
-        <activity android:name=".activity.offers_discounts.ActivityCaramranCooper" />
-        <activity android:name=".activity.offers_discounts.ActivityLaFiesta" />
-        <activity android:name=".activity.offers_discounts.ActivityStanleyBar" />
-        <activity android:name=".activity.offers_discounts.ActivityLewisPub" />
-        <activity android:name=".activity.offers_discounts.ActivityBlackBull" />
-        <activity android:name=".activity.offers_discounts.ActivityAnicaTorres" />
-        <activity android:name=".activity.offers_discounts.ActivityKaraoke" />
-        <activity android:name=".activity.offers_discounts.ActivityTheSalon" />
-        <activity android:name=".activity.offers_discounts.ActivityOsaExchange" />
-        <activity android:name=".activity.offers_discounts.ActivityMartinsHair" />
-        <activity android:name=".activity.offers_discounts.ActivityLastBar" />
-        <activity android:name=".activity.offers_discounts.ActivityCaseyDukes" />
-        <activity android:name=".activity.offers_discounts.ActivityRegisterOffers" />
-        <activity android:name=".activity.discover_benalmadena.ActivityDiscoverBenalmaden" />
-        <activity android:name=".activity.discover_benalmadena.ActivityHistoryBenalmadena" />
-        <activity android:name=".activity.discover_benalmadena.ActivityMainAreas" />
-        <activity android:name=".activity.discover_benalmadena.main_areas.ActivityBenalmadenaCosta" />
-        <activity android:name=".activity.discover_benalmadena.main_areas.ActivityArroyo" />
-        <activity android:name=".activity.discover_benalmadena.main_areas.ActivityBenalmadenaPueblo" />
-        <activity android:name=".activity.discover_benalmadena.ActivityVieoBenalmadena" />
-        <activity android:name=".activity.discover_benalmadena.ActivityDayOutThings" />
-        <activity android:name=".activity.discover_benalmadena.ActivityAqualand" />
-        <activity android:name=".activity.discover_benalmadena.ActivityPublicTransport" />
-        <activity android:name=".activity.local_guides.ActivityLocalGuidesServices" />
-        <activity android:name=".activity.local_guides.ActivityRestaurants" />
-        <activity android:name=".activity.local_guides.restaurants.ActivityEatingOut" />
-        <activity android:name=".activity.local_guides.restaurants.ActivityLaNinaDelGurdia" />
-        <activity android:name=".activity.local_guides.restaurants.ActivityElClubNautico" />
-        <activity android:name=".activity.local_guides.ActivityBarsNightlife" />
-        <activity android:name=".activity.local_guides.bar_night_life.ActivityTabernaFlamenca" />
-        <activity android:name=".activity.local_guides.bar_night_life.ActivityCaponeKaraoke" />
-        <activity android:name=".activity.local_guides.bar_night_life.ActivityHereAtLast" />
-        <activity android:name=".activity.local_guides.bar_night_life.ActivityTheBlackBull" />
-        <activity android:name=".activity.local_guides.bar_night_life.ActivityNightlifeBenaladena" />
     </application>
 
 </manifest>

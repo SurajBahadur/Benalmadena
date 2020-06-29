@@ -47,7 +47,7 @@
             android:id="@+id/btn_offers_discount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onMainActivityClick"
+            
             android:layout_marginHorizontal="10dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +76,7 @@
             android:id="@+id/btn_discover"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onMainActivityClick"
+            
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="10dp"
             android:orientation="vertical"
@@ -111,8 +111,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:onClick="onMainActivityClick"
-
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="10dp"
             android:orientation="vertical"
@@ -147,7 +145,7 @@
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="10dp"
             android:orientation="vertical"
-            android:onClick="onMainActivityClick"
+            
             android:gravity="center_horizontal"
 
             app:layout_constraintEnd_toEndOf="parent"
@@ -181,7 +179,7 @@
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="10dp"
             android:gravity="center_horizontal"
-            android:onClick="onMainActivityClick"
+            
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

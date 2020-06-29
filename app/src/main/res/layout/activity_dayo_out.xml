@@ -41,7 +41,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onDayOutClick"
+                    
                     android:id="@+id/btn_tivoli_world"
                     android:orientation="vertical">
 
@@ -87,7 +87,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onDayOutClick"
+                    
                     android:id="@+id/btn_aqualand"
                     android:orientation="vertical">
 
@@ -138,7 +138,7 @@
                         android:layout_height="60dp"
                         android:id="@+id/btn_selwo"
 
-                        android:onClick="onDayOutClick"
+                        
                         android:background="@color/white"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
@@ -176,7 +176,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onDayOutClick"
+                    
                     android:id="@+id/btn_calecar"
                     android:orientation="vertical">
 
@@ -220,7 +220,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onDayOutClick"
+                    
                     android:id="@+id/btn_sunset_beach"
                     android:orientation="vertical">
 
@@ -265,7 +265,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/btn_sealife"
-                    android:onClick="onDayOutClick"
+                    
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -308,7 +308,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onDayOutClick"
+                    
                     android:id="@+id/btn_butterfly"
                     android:orientation="vertical">
 
@@ -352,7 +352,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onDayOutClick"
+                    
                     android:id="@+id/btn_ek_ranchito"
                     android:orientation="vertical">
 
@@ -396,7 +396,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onDayOutClick"
+                    
                     android:id="@+id/btn_tourist_train"
                     android:orientation="vertical">
 
@@ -440,7 +440,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onDayOutClick"
+                    
                     android:id="@+id/btn_ferry_curise"
                     android:orientation="vertical">
 

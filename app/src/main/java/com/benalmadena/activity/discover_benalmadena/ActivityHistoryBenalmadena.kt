@@ -1,18 +1,28 @@
 package com.benalmadena.activity.discover_benalmadena
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import com.benalmadena.R
+import com.benalmadena.base.BaseFragment
 import kotlinx.android.synthetic.main.layout_toolbar_common.*
 
-class ActivityHistoryBenalmadena:AppCompatActivity() {
+class ActivityHistoryBenalmadena : BaseFragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_history_benalmadena)
-        tv_title.text=intent.getStringExtra("title")
-        btn_back.setOnClickListener { finish() }
-
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.activity_history_benalmadena, container, false)
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        tv_title.text = arguments!!.getString("title")
+        btn_back.setOnClickListener { activity!!.onBackPressed() }
+    }
+
 
 }

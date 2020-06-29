@@ -41,7 +41,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onDisvoverClicks"
+                   
                     android:id="@+id/btn_history"
                     android:orientation="vertical">
 
@@ -88,7 +88,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onDisvoverClicks"
+                   
                     android:id="@+id/btn_main_area"
                     android:orientation="vertical">
 
@@ -139,7 +139,7 @@
                         android:layout_height="60dp"
                         android:id="@+id/btn_facebbok"
 
-                        android:onClick="onDisvoverClicks"
+                       
                         android:background="@color/white"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
@@ -177,7 +177,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onDisvoverClicks"
+                   
                     android:id="@+id/btn_video"
                     android:orientation="vertical">
 
@@ -221,7 +221,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onDisvoverClicks"
+                   
                     android:id="@+id/btn_day_out_things"
                     android:orientation="vertical">
 
@@ -266,7 +266,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 android:id="@+id/btn_holiday_date"
-                    android:onClick="onDisvoverClicks"
+                   
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -309,7 +309,7 @@ android:id="@+id/btn_holiday_date"
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onDisvoverClicks"
+                   
                     android:id="@+id/btn_local_news"
                     android:orientation="vertical">
 
@@ -353,7 +353,7 @@ android:id="@+id/btn_holiday_date"
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onDisvoverClicks"
+                   
                     android:id="@+id/btn_weather"
                     android:orientation="vertical">
 
@@ -397,7 +397,7 @@ android:id="@+id/btn_holiday_date"
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onDisvoverClicks"
+                   
                     android:id="@+id/btn_public_transport"
                     android:orientation="vertical">
 
@@ -441,7 +441,7 @@ android:id="@+id/btn_holiday_date"
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onDisvoverClicks"
+                   
                     android:id="@+id/btn_visitor_guide"
                     android:orientation="vertical">
 
