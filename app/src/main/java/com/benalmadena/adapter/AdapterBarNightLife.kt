@@ -8,13 +8,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.benalmadena.R
 import com.benalmadena.activity.local_guides.ActivityBarsNightlife
+import com.benalmadena.base.BaseFragment
 import com.benalmadena.data.BarNightLife
 import kotlinx.android.synthetic.main.adapter_offers_discunt.view.*
 
 class AdapterBarNightLife(
     val context: Context,
     val list: ArrayList<BarNightLife>,
-    val activity: ActivityBarsNightlife
+    val activity: BaseFragment
 ) : RecyclerView.Adapter<AdapterBarNightLife.MyViewHolder>() {
 
     override fun onCreateViewHolder(

@@ -7,6 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.benalmadena.R
+import com.benalmadena.activity.local_guides.beauty_nail_salons.ActivityBeautyNailSalon
+import com.benalmadena.activity.local_guides.local_service.ActivityLocalService
+import com.benalmadena.activity.local_guides.property.ActivityPropertyHome
+import com.benalmadena.activity.local_guides.shoping.FragmentShopingHome
 import com.benalmadena.adapter.AdapterOffersDiscount
 import com.benalmadena.base.BaseFragment
 import com.benalmadena.data.OffersDiscountData
@@ -39,10 +43,14 @@ class ActivityLocalGuidesServices:BaseFragment(), (Fragment, String) -> Unit {
         listData.add(OffersDiscountData("Restaurants",R.drawable.img_3,ActivityRestaurants()))
 
         listData.add(OffersDiscountData("Bars & Nightlife",R.drawable.img_14,ActivityBarsNightlife()))
-        listData.add(OffersDiscountData("Shopping",R.drawable.img_2,ActivityLocalGuidesServices()))
-        listData.add(OffersDiscountData("Local Services",R.drawable.lacal_guid_1,ActivityLocalGuidesServices()))
-        listData.add(OffersDiscountData("Property",R.drawable.lacal_guid_3,ActivityLocalGuidesServices()))
-        listData.add(OffersDiscountData("Beauty & Nails Salons",R.drawable.lacal_guid_4,ActivityLocalGuidesServices()))
+        listData.add(OffersDiscountData("Shopping",R.drawable.img_2, FragmentShopingHome()))
+        listData.add(OffersDiscountData("Local Services",R.drawable.lacal_guid_1,
+            ActivityLocalService()
+        ))
+        listData.add(OffersDiscountData("Property",R.drawable.lacal_guid_3,ActivityPropertyHome()))
+        listData.add(OffersDiscountData("Beauty & Nails Salons",R.drawable.lacal_guid_4,
+            ActivityBeautyNailSalon()
+        ))
         listData.add(OffersDiscountData("Hair Salons",R.drawable.img_18,ActivityLocalGuidesServices()))
         listData.add(OffersDiscountData("Barbers",R.drawable.img_6,ActivityLocalGuidesServices()))
         listData.add(OffersDiscountData("Boat Trips",R.drawable.img_9,ActivityLocalGuidesServices()))
