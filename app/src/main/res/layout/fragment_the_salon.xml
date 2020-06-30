@@ -15,18 +15,20 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tool_bar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:background="@color/white"
             android:layout_height="0dp">
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:background="@drawable/osa_car_hire"
+                android:background="@drawable/salon"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -45,123 +47,110 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="OSA Cars"
+                    android:text="The Salon"
                     android:textColor="@color/black"
                     android:textSize="21sp"
                     android:textStyle="bold" />
 
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Car Hire Company"
-                    android:textColor="@color/grey"
+                    android:textColor="@color/grey_dark"
                     android:textSize="17sp"
-                    android:textStyle="italic" />
+                    android:text="Introducing The Salon in the beautiful Benalmadena Pueblo. The owner Dennis has lived and worked in Spain since 1986 managing salons from Marbella to Benalmadena before eventually living the dream and opening his own salon."
+                    android:layout_marginTop="10dp"
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/the_salon_3" />
+
+
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:src="@drawable/the_salon_4"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="fitXY"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey_dark"
+                    android:textSize="17sp"
+                    android:text="The Salon is one of the only hair salons in Spain that is registered with the British Hair Council and Dennis and his team of highly experienced staff carry with them a wealth of knowledge and expertise in the industry using milkshake and CND Products."
+                    android:layout_marginTop="10dp"
+                    />
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:src="@drawable/the_salon_5"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="fitXY"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey_dark"
+                    android:textSize="17sp"
+                    android:text="If you want to look amazing but at a really competitive price give The Salon a call for the ultimate pamper experience."
+                    android:layout_marginTop="10dp"
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:src="@drawable/the_salon_6"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="fitXY"/>
+
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginVertical="10dp"
                     android:background="@color/grey" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="WE NOW RENT BIKES!"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="21sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-
-                    android:text="1 DAY 25 € AND THE WEEK 150 €"
-                    android:textColor="@color/black"
+                    android:textColor="@color/grey_dark"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="@color/grey" />
-
+                    android:textStyle="bold"
+                    android:text="Opening Times:"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="FIAT PANDA OFFER!"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="21sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center_horizontal"
-                    android:text="Prices include unlimited mileage, fully comprehensive insurance with no hidden extras "
-                    android:textColor="@color/grey"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/grey_dark"
+                    android:textSize="16sp"
                     android:layout_marginTop="10dp"
-                    android:gravity="center_horizontal"
-                    android:text="TAKE 4 DAYS FOR A FIAT PANDA AND PAY ONLY 3"
-                    android:textColor="@color/black_off"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:text="Monday: Closed"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey_dark"
+                    android:textSize="16sp"
+                    android:text="Tuesday - Saturday: 10.00 - 18.00"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center_horizontal"
-                    android:text="4 DAYS FOR 85€"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/grey_dark"
+                    android:textSize="16sp"
+                    android:text="Sunday: Closed "/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_horizontal"
-                    android:text="TAKE 7 DAYS FOR A FIAT PANDA AND PAY ONLY 5"
-                    android:textColor="@color/black_off"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center_horizontal"
-                    android:text="7 DAYS FOR 125€"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="500dp"
-                    android:src="@drawable/osa_car_hire_1" />
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/osa_car_hire_2" />
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/osa_car_hire_3" />
+                    android:textColor="@color/grey_dark"
+                    android:textSize="16sp"
+                    android:text="30min Call-Ahead &amp; Same day reservation!"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -174,6 +163,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp" />
+
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

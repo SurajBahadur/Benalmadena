@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.benalmadena.activity.ActivityOffersDiscount
 import com.benalmadena.activity.discover_benalmadena.ActivityDiscoverBenalmaden
 import com.benalmadena.activity.local_guides.ActivityLocalGuidesServices
+import com.benalmadena.activity.local_information.FragmentLocalInformation
 import com.benalmadena.base.BaseFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_find_us_common.*
@@ -45,6 +46,7 @@ class MainActivity : BaseFragment(), View.OnClickListener {
             }
             btn_local_info -> {
 
+                addFragment(FragmentLocalInformation(), true, R.id.container_full)
             }
             btn_radio -> {
 

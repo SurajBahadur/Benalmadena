@@ -15,18 +15,20 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tool_bar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:background="@color/white"
             android:layout_height="0dp">
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="@drawable/osa_car_hire"
+                android:layout_height="200dp"
+                android:background="@drawable/wedding_spain_5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -44,44 +46,104 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="OSA Cars"
-                    android:textColor="@color/black"
-                    android:textSize="21sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Car Hire Company"
+                    android:text="SPONSORED BY"
+                    android:layout_marginTop="5dp"
                     android:textColor="@color/grey"
-                    android:textSize="17sp"
-                    android:textStyle="italic" />
-
-                <View
+                    android:textSize="17sp" />
+                <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="@color/grey" />
-
+                    android:layout_height="120dp"
+                    android:background="@drawable/diva"
+                    android:layout_marginTop="10dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="WE NOW RENT BIKES!"
-                    android:textColor="@color/colorPrimary"
+                    android:layout_marginTop="10dp"
+                    android:text="Weddings in Spain and the Costa Del Sol"
+                    android:textColor="@color/grey_dark"
                     android:textSize="21sp"
                     android:textStyle="bold" />
 
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/wedding"
+                    android:textColor="@color/grey_dark"
+                    android:textSize="16sp" />
 
-                    android:text="1 DAY 25 € AND THE WEEK 150 €"
-                    android:textColor="@color/black"
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="@drawable/wedding_spain_2"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Perfect Weather"
+                    android:textColor="@color/grey_dark"
                     android:textSize="18sp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="With an almost guaranteed 300 days of sunshine per year makes for an easier time weather wise - and some extra stunning wedding photos too!"
+                    android:textColor="@color/grey_dark"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Beautiful Locations"
+                    android:textColor="@color/grey_dark"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                 android:text="Will you choose the glamor of a beach wedding ceremony or tie the knot at a beachside club or hotel? There's many beautiful locations from beaches to mountains for your special day, and many venues for your reception and party."
+                    android:textColor="@color/grey_dark"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Low Costs"
+                    android:textColor="@color/grey_dark"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="With cheap, short flight times the dream for your special day won't cost you and your guests the earth. Hair, makeup and beauty services are available locally for your bridal party and guests with many offering 'on-site' services wherever you are staying."
+                     android:textColor="@color/grey_dark"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="@drawable/wedding_spain_4"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                   android:text="But remember to get organised! A wedding planner may be of even more use than in the UK, by having someone with the local knowledge that can help you every step of the way with sourcing venues, food &amp; drinks, photo locations, any paperwork or licences needed - and getting it all done on time.\n\nWhere ever you decide to get married in the Costa Del Sol you'll be sure to enjoy every minute!"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/grey_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="@drawable/wedding_spain_3"
+                    android:layout_marginTop="10dp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -89,91 +151,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@color/grey" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="FIAT PANDA OFFER!"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="21sp"
-                    android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center_horizontal"
-                    android:text="Prices include unlimited mileage, fully comprehensive insurance with no hidden extras "
-                    android:textColor="@color/grey"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_horizontal"
-                    android:text="TAKE 4 DAYS FOR A FIAT PANDA AND PAY ONLY 3"
-                    android:textColor="@color/black_off"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center_horizontal"
-                    android:text="4 DAYS FOR 85€"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_horizontal"
-                    android:text="TAKE 7 DAYS FOR A FIAT PANDA AND PAY ONLY 5"
-                    android:textColor="@color/black_off"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center_horizontal"
-                    android:text="7 DAYS FOR 125€"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="500dp"
-                    android:src="@drawable/osa_car_hire_1" />
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/osa_car_hire_2" />
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/osa_car_hire_3" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="@color/grey" />
-
-                <include
-                    layout="@layout/layout_find_us_common"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
