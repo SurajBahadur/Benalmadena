@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.benalmadena.activity.ActivityOffersDiscount
+import com.benalmadena.activity.FragmentCityFm
 import com.benalmadena.activity.discover_benalmadena.ActivityDiscoverBenalmaden
 import com.benalmadena.activity.local_guides.ActivityLocalGuidesServices
 import com.benalmadena.activity.local_information.FragmentLocalInformation
@@ -50,6 +51,7 @@ class MainActivity : BaseFragment(), View.OnClickListener {
             }
             btn_radio -> {
 
+                addFragment(FragmentCityFm(), true, R.id.container_full)
             }
         }
     }
