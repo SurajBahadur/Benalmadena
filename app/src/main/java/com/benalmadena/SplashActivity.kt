@@ -78,10 +78,14 @@ class SplashActivity : BaseActivity() {
     }
 
     override fun onStop() {
-        releaseExoplayer()
         super.onStop()
     }
 
+    override fun onDestroy() {
+        releaseExoplayer()
+        super.onDestroy()
+
+    }
 
     private fun releaseExoplayer() {
         player.release()
