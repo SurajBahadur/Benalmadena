@@ -4,6 +4,10 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.animation.AnimationUtils
+import android.view.animation.TranslateAnimation
+import androidx.fragment.app.FragmentManager
+import com.benalmadena.activity.FragmentCityFm
 import com.benalmadena.base.BaseActivity
 import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.source.ExtractorMediaSource
@@ -18,6 +22,7 @@ import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 import kotlinx.android.synthetic.main.activity_splash.*
+
 
 class SplashActivity : BaseActivity() {
     private lateinit var player: ExoPlayer
@@ -39,19 +44,37 @@ class SplashActivity : BaseActivity() {
             clPlayerView.visibility = View.GONE
             btnOpen.visibility = View.VISIBLE
 
-
+            val rightSwipe=AnimationUtils.loadAnimation(this,R.anim.anim_left_side)
+            clPlayerView.startAnimation(rightSwipe)
         }
 
         btnOpen.setOnClickListener {
             clPlayerView.visibility = View.VISIBLE
             btnOpen.visibility = View.GONE
+
+            val rightSwipe=AnimationUtils.loadAnimation(this,R.anim.anim_right_side)
+            clPlayerView.startAnimation(rightSwipe)
         }
+
+        supportFragmentManager.addOnBackStackChangedListener(object :
+            FragmentManager.OnBackStackChangedListener {
+            override fun onBackStackChanged() {
+                val currentFragment = supportFragmentManager.findFragmentById(R.id.container_full)
+                if (currentFragment is FragmentCityFm) {
+                    if (clPlayerView.visibility == View.GONE && btnOpen.visibility == View.GONE) {
+                        clPlayerView.visibility = View.VISIBLE
+                        playVideoWithSubtitle(dashUrl)
+                    }
+                }
+            }
+        })
+
     }
 
 
     override fun onStart() {
         super.onStart()
-        playVideoWithSubtitle(dashUrl)
+
     }
 
     override fun onStop() {
